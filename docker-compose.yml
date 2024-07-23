@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - /mnt/c/Users/mtdta/Desktop/Docker/nginx:/usr/share/nginx/html 
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: root
+    volumes:
+      - /mnt/c/Users/mtdta/Desktop/Docker/postgresql:/var/lib/postgresql/data
+
